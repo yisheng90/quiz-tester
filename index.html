@@ -3,19 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Test</title>
+    <!-- Latest compiled and minified CSS -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
-    <script src="./quizzes.js"></script>
-    <script src="./quiz-tester.js"></script>
-</head>
+    <script src="./quizzes0.js"></script>
+
 <body>
-    <h3></h3>
-    <h3></h3>
-    <h1></h1>
-    <div>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
+    <header class="page-header text-center h1">The Monster University</header>
+    <div class="container menu col-md-12">
+        <div clas='row'>
+            <div id="math" class='col-md-3 subject'><img src='https://s-media-cache-ak0.pinimg.com/236x/48/4e/60/484e60f41ae69a97d07de2dedff555cd.jpg' class='cover'></div>
+            <div id="science" class='col-md-3 subject'><img src='https://s-media-cache-ak0.pinimg.com/236x/43/57/b4/4357b4cbe2593a82ea1d8de90f207f54.jpg' class='cover'></div>
+            <div id="sport" class='col-md-3 subject'><img src='https://s-media-cache-ak0.pinimg.com/236x/ef/e1/89/efe189c2bffb539d60e78c0bce150197.jpg' class='cover'></div>
+            <div id="language" class='col-md-3 subject'><img src='https://s-media-cache-ak0.pinimg.com/736x/22/4d/fe/224dfeef77923e3d0ebc9845d5c4744d.jpg' class='cover'></div>
+        </div>
     </div>
+    <div class="container quiz">
+        <div class="row text-center">
+            <h3 class="col-md-2 col-sm-6 text-center"></h3>
+            <h3 class="col-md-2 col-md-offset-8 col-sm-6 text-center"></h3>
+            <h1 class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4 question"></h1>
+        </div>
+
+        <div class="row answer">
+        </div>
+
+        <div class="alert alert-success invisible col-md-4 mx-auto" role="alert">
+            <h2 class="alert-heading"> Game Over</h2>
+            <p></p>
+        <button class='btn btn-default btn-sm'>Play Again</button>
+    </div>
+
+
+</div>
 </body>
 </html>
