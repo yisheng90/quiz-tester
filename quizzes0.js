@@ -155,6 +155,8 @@ Quiz.prototype.questionNo = function () {
 Quiz.prototype.updateDisplay = function () {
   $('.progress-bar').css('width', '100%')
   .removeClass('progress-bar-danger')
+  .text('30s')
+  $('.progress').addClass('invisible')
   $('.answer').hide()
   $('.answer button').remove()
   $('.prompt button').fadeIn()
@@ -197,7 +199,7 @@ Quiz.prototype.uI = function () {
   $('.prompt').on('click', 'button', function () {
     var index = $('button').index(this)
      // console.log(subject)
-
+    $('.progress').removeClass('invisible')
     $('.prompt button').hide()
     $('.answer h1').text(self.questions[self.sequence[index]].prompt)
     $('.answer').fadeIn().delay('1000')
@@ -219,7 +221,7 @@ Quiz.prototype.uI = function () {
       width = time * (barSize / 30)
 
       $('.progress-bar').css('width', width + 'px')
-      console.log(time)
+      .text(time.toFixed(2)+'s')
       if (time <= 0) {
         clearInterval(timer)
         currentPlayer = 3 - currentPlayer

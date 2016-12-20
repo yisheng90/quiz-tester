@@ -47,7 +47,6 @@ function correctAnswer() {
 }
 
 function playTurn(choice) {
-  // console.log('start', quiz.currentQuestion)
   if (isGameOver()) { return false }
   if (correctAnswer() === choice) {
     quiz['player' + currentPlayer + 'Points'] += 1
@@ -55,12 +54,9 @@ function playTurn(choice) {
   } else {
     result = false
   }
-  // console.log('fired')
   quiz.currentQuestion += 1
   currentPlayer = 3 - currentPlayer
-  // console.log('player', currentPlayer)
 
-  // console.log('end', quiz.currentQuestion)
   isGameOver()
 
   return result
