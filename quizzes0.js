@@ -24,45 +24,59 @@ var science6 = new Question('The gas usually filled in the electric bulb is', ['
 var science7 = new Question('Washing soda is the common name for', ['Sodium bicarbonate', 'Calcium bicarbonate', 'Sodium carbonate', 'Calcium carbonate'], 2)
 var science8 = new Question('Which of the gas is not known as green house gas?', ['Hydrogen', 'Nitrus Oxide', 'Carbon dioxide', 'Mathane'], 0)
 
-function Quiz (questions) {
+var sport1 = new Question('Which was the 1st non Test playing country to beat India in an international match?', ['Canada', 'Sri Lanka', 'Zimbabwe', 'East Afica'], 1)
+var sport2 = new Question('Track and field star Carl Lewis won how many gold medals at the 1984 Olympic games?', ['One', 'Two', 'Four', 'Eight'], 2)
+var sport3 = new Question('Who was the first Indian to win the World Amateur Billiards title?', ['Geet Sethi', 'Wilson Jones', 'Michael Ferreira', 'Manoj Kothari'], 1)
+var sport4 = new Question('Which NBA player scored 8 points in the final 7 seconds of a game to lead his team to victory?', ['Baron Davis', 'Kevin Garnett', 'Stephon Maurbury', 'Reggie Miller'], 3)
+var sport5 = new Question('	How long are professional Golf Tour players allotted per shot?', ['45 seconds', '25 seconds', '1 minute', '2 minutes'], 0)
+var sport6 = new Question('Who won the 1993 "King of the Ring"?', ['Owen Hart', 'Bret Hart', 'Edge', 'Mabel'], 1)
+var sport7 = new Question('Which country won the Cricket World Cup in 1999?', ['Australia',, 'South Africa', 'Pakistan', 'England'], 0)
+var sport8 = new Question('Who did The Rock beat to win his first WWE Title?', ['Triple H', 'Stone Cold Steve Austin', 'Mankind', 'Bret Hart'], 2)
+
+function Quiz (questions, type) {
   this.questions = questions
   this.isGameOver = false
+  this.completedQuestion = 0
   this.currentQuestion = 0
   this.player1Points = 0
   this.player2Points = 0
+  this.sequence = [0, 1, 2, 3, 4, 5, 6, 7]
+  this.type = type
 }
 
-var math = new Quiz([question1, question2, question3, question4, question5, question6, question7, question8])
+var math = new Quiz([question1, question2, question3, question4, question5, question6, question7, question8], 'math')
 
-var science = new Quiz([science1, science2, science3, science4, science5, science6, science7, science7])
+var science = new Quiz([science1, science2, science3, science4, science5, science6, science7, science7], 'science')
+var sports = new Quiz([sport1, sport2, sport3, sport4, sport5, sport6, sport7, sport8], 'sports')
 
 var currentPlayer = 1
 
 // Prototype Method
 Quiz.prototype.numberOfQuestions = function () {
-  console.log('numberOfQuestion', this.questions.length)
+  // console.log('numberOfQuestion', this.questions.length)
   return this.questions.length
 }
 
 Quiz.prototype.currentQuestionNo = function () {
-  console.log('currentQuestionNo', this.currentQuestion)
+//  console.log('currentQuestionNo', this.currentQuestion)
   return this.currentQuestion
 }
 
 Quiz.prototype.numberOfAnswers = function () {
-  console.log('numberOfAnswers', this.questions[this.currentQuestionNo()].options.length)
+  // console.log('numberOfAnswers', this.questions[this.currentQuestionNo()].options.length)
   return this.questions[this.currentQuestionNo()].options.length
 }
 
 Quiz.prototype.correctAnswer = function () {
-  console.log('correct answer', this.questions[this.currentQuestionNo()].correctAnswerIndex)
+//  console.log('correct answer', this.questions[this.currentQuestionNo()].correctAnswerIndex)
   return this.questions[this.currentQuestionNo()].correctAnswerIndex
 }
 
 Quiz.prototype.checkGameOver = function () {
-  if (this.currentQuestionNo() === this.numberOfQuestions()) {
-    // whoWon()
-    console.log('passed')
+  console.log(this.completedQuestion)
+  if (this.completedQuestion === this.numberOfQuestions()) {
+    this.whoWon()
+  //  console.log('passed')
     return true
   }
   return false
@@ -75,8 +89,14 @@ Quiz.prototype.playTurn = function (choice) {
   // console.log(gameover);
   if (this.checkGameOver()) { return false }
   if (this.correctAnswer() === choice) {
-    this['player' + currentPlayer + 'Points'] += 1
-    this.currentQuestion += 1
+    if (currentPlayer === 1) {
+      this['player1Points'] += 1
+    } else {
+      (
+      this['player2Points'] += 1
+    )
+    }
+    this.completedQuestion += 1
     result = true
   } else {
     result = false
@@ -85,7 +105,8 @@ Quiz.prototype.playTurn = function (choice) {
 
   currentPlayer = 3 - currentPlayer
   // console.log('player', currentPlayer)
-
+  console.log('player1', this.player1Points)
+  console.log('player2', this.player2Points)
   // console.log('end', quiz.currentQuestion)
   this.checkGameOver()
 
@@ -112,39 +133,42 @@ Quiz.prototype.whoWon = function () {
 Quiz.prototype.restart = function () {
   this.isGameOver = false,
   this.currentQuestion = 0,
+  this.completedQuestion = 0,
   this.player1Points = 0,
   this.player2Points = 0,
   currentPlayer = 1
 }
 
-$(document).ready(function () {
-  var whichDiv
-  var subject
-  $('.menu div div').click(function () {
-    whichDiv = $('div').index(this)
-    console.log('whichDiv', whichDiv)
-    if (whichDiv === 2) {
-      subject = math
-    } else if (whichDiv === 3) {
-      subject = science
+Quiz.prototype.questionNo = function () {
+  var num = 0
+  var i = 0
+  this.sequence = []
+  while (i < this.questions.length) {
+    num = Math.floor(Math.random() * this.questions.length)
+    if (this.sequence.includes(num) !== true) {
+      this.sequence.push(num)
+      i++
     }
-    $('.menu').fadeOut()
-    $('.quiz').fadeIn()
-
-    subject.uI(subject)
-  })
-})
+  }
+}
 
 Quiz.prototype.updateDisplay = function () {
-  $('h3:nth-child(2)').text('Player 1: ' + this.player1Points)
-  $('h3:nth-child(4)').text('Player 2: ' + this.player2Points)
+  $('.progress-bar').css('width', '100%')
+  .removeClass('progress-bar-danger')
+  $('.answer').hide()
+  $('.answer button').remove()
+  $('.prompt button').fadeIn()
+  // Update the score
+  $('#player' + currentPlayer).css({
+    'border': 'red 4px solid',
+    'border-radius': '100px'
+  })
+  $('#player' + (3 - currentPlayer)).removeAttr('style')
+  $('.player1').text(this.player1Points)
+  $('.player2').text(this.player2Points)
+
+  // update diaplay when game is over
   if (this.checkGameOver() === true) {
-    $('.row').css({
-      background: 'rgba(0,0,0,0.1)'
-    })
-    $('.answer button, h1').css({
-      opacity: 0.5
-    })
     if (this.whoWon() === 3) {
       $('.alert p').text('It is a draw game.')
     } else if (this.whoWon() > 0) {
@@ -153,38 +177,124 @@ Quiz.prototype.updateDisplay = function () {
 
     $('.alert').removeClass('invisible')
     .css('z-index', '1')
-  } else {
-    $('h1').text(this.questions[this.currentQuestion].prompt).bind(this)
-    $('.answer button').remove()
-    for (var i = 0; i < this.numberOfAnswers(); i++) {
-      $('.answer').append('<button>' + this.questions[this.currentQuestion].options[i] + '</button>').bind(this)
-      $('.answer button').addClass('btn btn-default btn-lg')
-      .fadeIn()
-    }
   }
 }
-
-Quiz.prototype.uI = function (subject) {
+var timer
+Quiz.prototype.uI = function () {
   //  updateDisplay when webpage first loaded
-  subject.updateDisplay()
-  var index
+  this.questionNo()
+  this.updateDisplay()
+  var self = this
+  for (var i = 0; i < this.questions.length; i++) {
+  //  console.log(this.questions[this.sequence[i]].prompt)
+    $('.prompt').append('<button></button>')
+    $('.prompt button').addClass('btn btn-lg btn-default card')
+    .attr('id', self.type)
+  }
+
   // call playTurn(choice) and updateDispaly() when answer has been selected
-  $('body').on('click', 'button', function () {
-    index = $('button').index(this)
-    console.log(index)
-    if (subject.checkGameOver() === false) {
-      if (subject.playTurn(index) === true) {
-        $('.answer button:nth-child(' + (index + 1) + ')').addClass('btn-success')
-      } else {
-        $('.answer button:nth-child(' + (index + 1) + ')').addClass('btn-danger')
-      }
-      timeout = setTimeout(function () { subject.updateDisplay() }, 500)
+  $('.prompt').off('click', 'button')
+  $('.prompt').on('click', 'button', function () {
+    var index = $('button').index(this)
+     // console.log(subject)
+
+    $('.prompt button').hide()
+    $('.answer h1').text(self.questions[self.sequence[index]].prompt)
+    $('.answer').fadeIn().delay('1000')
+    self.currentQuestion = self.sequence[index]
+    $('.answer button').remove()
+
+    for (var i = 0; i < self.numberOfAnswers(); i++) {
+      $('.answer').append('<button>' + self.questions[self.sequence[index]].options[i] + '</button>')
+      $('.answer button').addClass('btn btn-default btn-lg')
+       .fadeIn()
     }
+
+    var time = 30
+    var barSize = parseInt($('.progress-bar').css('width'))
+    var width = barSize
+
+    timer = setInterval(function () {
+      time -= 0.1
+      width = time * (barSize / 30)
+
+      $('.progress-bar').css('width', width + 'px')
+      console.log(time)
+      if (time <= 0) {
+        clearInterval(timer)
+        currentPlayer = 3 - currentPlayer
+
+        self.updateDisplay()
+      } else if (time <= 10) {
+      $('.progress-bar').addClass('progress-bar-danger')
+      }
+    }, 100)
   })
 
-  $('.alert button').click(function () {
+  $('.answer').off('click', 'button')
+  $('.answer').on('click', 'button', function () {
+    clearInterval(timer)
+    var index
+    index = $('button').index(this)
+
+    if (self.playTurn((index - 8)) === true) {
+      $('.prompt button:nth-child(' + (self.sequence.indexOf(self.currentQuestion) + 1) + ')').addClass('done')
+      .removeAttr('id')
+      .text(self.questions[self.sequence[self.sequence.indexOf(self.currentQuestion)]].prompt)
+      .prop('disabled', true)
+    } else {
+      $('.answer button:nth-child(' + (index - 6) + ')').addClass('btn-danger')
+    }
+
+    self.updateDisplay()
+// alert(currentPlayer);
+  })
+
+  $('.playagain').click(function () {
     $('.alert').addClass('invisible')
-    $('.row, .answer button, h1').removeAttr('style')
-    subject.restart()
+    $('.prompt button').removeClass('done')
+    .text('')
+    .prop('disabled', false)
+    self.questionNo()
+    self.restart()
   })
 }
+
+$(document).ready(function () {
+  var whichDiv
+  var subject
+
+  $('.menu .subject').click(function () {
+    whichDiv = $('div').index(this)
+    console.log('whichDiv', whichDiv)
+    if (whichDiv === 2) {
+      subject = math
+    } else if (whichDiv === 3) {
+      subject = science
+    } else if (whichDiv === 4) {
+      subject = sports
+    }
+    $('.menu').hide()
+    $('.quiz').fadeIn()
+    subject.uI()
+    console.log(subject.currentQuestionNo())
+    console.log(subject.completedQuestion)
+  })
+
+  $('.subject').hover(function () {
+    var index = $('.subject').index(this)
+    console.log(index)
+    $('.subject:nth-child(' + (index + 1) + ')').append('<h1 class="display-1 text-center text-uppercase">' + this.id + '<h1>')
+  },
+    function () {
+      $('.subject').find('h1').remove()
+    })
+
+  $('.mainmenu').click(function () {
+    $('.alert').addClass('invisible')
+    $('.prompt button').remove()
+    $('.quiz').hide()
+    $('.menu').fadeIn()
+    subjec = 0
+  })
+})

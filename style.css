@@ -21,9 +21,9 @@ button {
 }
 
 .btn-lg {
-  display:none;
+  white-space: normal;
   width: 180px;
-  padding-bottom: 200px;
+  height: 250px;
   text-align: left;
   font-weight: bold;
   background: #FAFAFA;
@@ -54,30 +54,74 @@ button {
   left: 32.5%;
   height: 200px;
 }
-.cover {
-  width: 100%;
-  height: 550px;
-  opacity:0.8;
 
-}
+
+
 
 .menu {
+  padding: 0;
   position: absolute;
   opacity: 0.8;
+  font-family: 'Russo One', sans-serif;
 }
 
-.menu,
+
 .subject {
   padding:0;
-  background: black;
-  opacity: 0.6;
-}
-
-#math {
-
-
+  height:550px;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .quiz {
   display: none;
+}
+
+
+.icon {
+  width: 100px;
+  height: auto;
+}
+
+.card {
+  background: url('image/card.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.done {
+  background: white;
+}
+
+.currentPlayer {
+  border: 2px solid red;
+  border-radius: 100px;
+}
+
+#math {
+  background: url('https://s-media-cache-ak0.pinimg.com/236x/48/4e/60/484e60f41ae69a97d07de2dedff555cd.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#science {
+  background: url('https://s-media-cache-ak0.pinimg.com/236x/43/57/b4/4357b4cbe2593a82ea1d8de90f207f54.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#sports {
+  background: url('https://s-media-cache-ak0.pinimg.com/236x/ef/e1/89/efe189c2bffb539d60e78c0bce150197.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#language {
+  background: url('https://s-media-cache-ak0.pinimg.com/736x/22/4d/fe/224dfeef77923e3d0ebc9845d5c4744d.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.progress {
+  padding:0;
 }

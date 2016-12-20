@@ -51,13 +51,12 @@ function playTurn(choice) {
   if (isGameOver()) { return false }
   if (correctAnswer() === choice) {
     quiz['player' + currentPlayer + 'Points'] += 1
-    quiz.currentQuestion += 1
     result = true
   } else {
     result = false
   }
   // console.log('fired')
-
+  quiz.currentQuestion += 1
   currentPlayer = 3 - currentPlayer
   // console.log('player', currentPlayer)
 
@@ -66,7 +65,7 @@ function playTurn(choice) {
 
   return result
 }
-
+/*
 function isGameOver() {
   if (currentQuestion() === numberOfQuestions()) {
     whoWon()
@@ -74,7 +73,27 @@ function isGameOver() {
   }
   return false
 }
+*/
+function isGameOver() {
+  if (whoWon() !== 0) {
+    return true
+  } else {
+    return false
+  }
+}
 
+function whoWon() {
+  if ((quiz.currentQuestion) < quiz.questions.length) {
+    return 0
+  } else if (quiz.player1Points> quiz.player2Points) {
+    return 1
+  } else if (quiz.player2Points> quiz.player1Points) {
+    return 2
+  } else {
+    return 3
+  }
+}
+/*
 function whoWon() {
   if (quiz.player1Points === 0 && quiz.player2Points === 0) {
     return 0
@@ -91,6 +110,7 @@ function whoWon() {
     console.log('draw')
   }
 }
+*/
 
 function restart () {
   quiz.isGameOver = false,
