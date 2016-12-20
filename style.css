@@ -1,23 +1,15 @@
-body {
-  width: 100%;
-  height: 100%;
-}
-
-
 
 .page-header {
 font-family: 'Russo One', sans-serif;
 color:rgb(100, 204, 252);
 }
 
-.answer,
 .alert {
   text-align: center;
 }
 
 button {
   margin: 20px;
-
 }
 
 .btn-lg {
@@ -29,21 +21,7 @@ button {
   background: #FAFAFA;
 }
 
-.btn-success,
-.btn-danger {
-  opacity: 0.4
-}
 
-.question {
-  width: 180px;
-  height: 250px;
-  border: 1px solid black;
-  color: white;
-  background: black;
-  border-radius: 10px;
-  font-size: 20px;
-  text-align: left;
-}
 #answer {
   vertical-align: top;
 }
@@ -54,9 +32,6 @@ button {
   left: 32.5%;
   height: 200px;
 }
-
-
-
 
 .menu {
   padding: 0;
@@ -77,17 +52,11 @@ button {
   display: none;
 }
 
-
 .icon {
   width: 100px;
   height: auto;
 }
 
-.card {
-  background: url('image/card.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
 
 .done {
   background: white;
