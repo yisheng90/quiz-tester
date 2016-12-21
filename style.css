@@ -4,9 +4,7 @@ font-family: 'Russo One', sans-serif;
 color:rgb(100, 204, 252);
 }
 
-.alert {
-  text-align: center;
-}
+
 
 button {
   margin: 20px;
@@ -31,6 +29,7 @@ button {
   top: 20%;
   left: 32.5%;
   height: 200px;
+  text-align: center;
 }
 
 .menu {
@@ -39,6 +38,9 @@ button {
   opacity: 0.8;
   font-family: 'Russo One', sans-serif;
 }
+
+
+
 
 
 .subject {
@@ -53,10 +55,16 @@ button {
 }
 
 .icon {
+  display: inline;
   width: 100px;
   height: auto;
+  margin:20px;
 }
 
+.text-right img,
+  .text-right h3{
+    float:right;
+  }
 
 .done {
   background: white;
@@ -71,26 +79,87 @@ button {
   background: url('https://s-media-cache-ak0.pinimg.com/236x/48/4e/60/484e60f41ae69a97d07de2dedff555cd.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 #science {
   background: url('https://s-media-cache-ak0.pinimg.com/236x/43/57/b4/4357b4cbe2593a82ea1d8de90f207f54.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+    background-position: center;
 }
 
 #sports {
   background: url('https://s-media-cache-ak0.pinimg.com/236x/ef/e1/89/efe189c2bffb539d60e78c0bce150197.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+    background-position: center;
 }
 
 #language {
   background: url('https://s-media-cache-ak0.pinimg.com/736x/22/4d/fe/224dfeef77923e3d0ebc9845d5c4744d.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+    background-position: center;
 }
 
 .progress {
   padding:0;
+}
+
+
+@media (max-width: 1200px) and (orientation: portrait) {
+  .subject {
+    height: 1000px;
+  }
+  .btn-lg {
+    width: 120px;
+    height: 200px;
+    font-size: 10px;
+  }
+
+  .alert {
+    top: 20%;
+    left: 32.5%;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .subject {
+    height: 230px;
+  }
+
+    h1 {
+      font-size: 20px;
+    }
+
+    .btn-lg {
+      width: 90px;
+      height: 90px;
+      padding: 5px;
+      font-size: 10px;
+    }
+
+    .icon {
+      margin:0;
+      width:80px;
+    }
+    .alert {
+      top: 20%;
+      left: 10%;
+    }
+
+    .avatar {
+    padding: 20px 0;
+    }
+
+
+}
+
+@media (max-width: 370px) {
+  .subject {
+    height: 180px;
+  }
+
 }
