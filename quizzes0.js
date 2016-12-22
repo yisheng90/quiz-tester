@@ -93,7 +93,7 @@ $(document).ready(function () {
     if (subject.playTurn((index - 8)) === true) {
       $('.questions-bank button:nth-child(' + (subject.sequence.indexOf(subject.currentQuestion) + 1) + ')').addClass('done')
       .removeAttr('id')
-      .text(subject.questions[subject.sequence[subject.sequence.indexOf(subject.currentQuestion)]].prompt)
+      //.text(subject.questions[subject.sequence[subject.sequence.indexOf(subject.currentQuestion)]].prompt)
       .prop('disabled', true)
     } else {
       $('.question button:nth-child(' + (index - 6) + ')').addClass('btn-danger')
@@ -109,6 +109,13 @@ $(document).ready(function () {
     .prop('disabled', false)
     questionSequence(subject)
     subject.restart()
+  })
+  
+  $('.page-header').click(function () {
+    $('.questions-bank button').remove()
+    $('.quiz').hide()
+    $('.menu').fadeIn()
+    subjec = 0
   })
 })
 
@@ -169,3 +176,5 @@ function showQuestionBank (subject) {
     .attr('id', subject.type)
   }
 }
+
+

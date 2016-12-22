@@ -40,7 +40,10 @@ button {
 }
 
 
-
+h3 {
+  display:inline;
+  font-size: 60px;
+}
 
 
 .subject {
@@ -61,13 +64,12 @@ button {
   margin:20px;
 }
 
-.text-right img,
-  .text-right h3{
+.text-right img{
     float:right;
   }
 
 .done {
-  background: white;
+  background: grey;
 }
 
 .currentPlayer {
@@ -105,15 +107,46 @@ button {
 
 .progress {
   padding:0;
+  height:30px;
+}
+
+.progress-bar {
+  width:100%;
 }
 
 
-@media (max-width: 1200px) and (orientation: portrait) {
+@media (min-width: 2500px) {
   .subject {
-    height: 1000px;
+    height:2250px;
+  }
+}
+
+@media (min-width: 2000px) {
+  .subject {
+    height:1800px;
+  }
+}
+
+@media (min-width: 1770px) {
+  .subject {
+    height:1000px;
   }
   .btn-lg {
-    width: 120px;
+    width: 250px;
+    height: 350px;
+ 
+  }
+}
+
+
+
+
+@media (max-width: 1770px) and (orientation: landscape) {
+  .subject {
+    height: 800px;
+  }
+  .btn-lg {
+    width: 90px;
     height: 200px;
     font-size: 10px;
   }
@@ -123,6 +156,7 @@ button {
     left: 32.5%;
   }
 }
+
 
 
 @media (max-width: 500px) {
@@ -157,9 +191,64 @@ button {
 
 }
 
-@media (max-width: 370px) {
+@media (max-width: 380px) and (orientation: portrait) {
   .subject {
     height: 180px;
+  }
+  
+  h3 {
+    font-size:30px;
+  }
+  
+  .avatar {
+    padding:0;
+  }
+
+}
+
+@media (max-width: 1025px) and (orientation: landscape) {
+  .btn-lg {
+    width: 100px;
+    height: 200px;
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 740px) and (orientation: landscape) {
+  
+  .page-header {
+    height: 40px;
+    margin: 0;
+  }
+  .subject {
+    height: 180px;
+  }
+  
+  h3 {
+    font-size:30px;
+  }
+  
+  .avatar {
+    padding:0;
+  }
+  
+  .icon {
+    width: 60px;
+  }
+  
+  .progress {
+    height: 20px;
+  }
+  
+  h1 {
+   margin: 0; 
+   font-size: 20px;
+  }
+  
+  .btn-lg {
+    width: 60px;
+    height: 60px;
+    font-size: 7px;
   }
 
 }

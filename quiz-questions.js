@@ -24,14 +24,26 @@ var science8 = new Question('Which of the gas is not known as green house gas?',
 
 var science = new Quiz([science1, science2, science3, science4, science5, science6, science7, science7], 'science')
 
-// sports
-var sport1 = new Question('Which was the 1st non Test playing country to beat India in an international match?', ['Canada', 'Sri Lanka', 'Zimbabwe', 'East Afica'], 1)
-var sport2 = new Question('Track and field star Carl Lewis won how many gold medals at the 1984 Olympic games?', ['One', 'Two', 'Four', 'Eight'], 2)
-var sport3 = new Question('Who was the first Indian to win the World Amateur Billiards title?', ['Geet Sethi', 'Wilson Jones', 'Michael Ferreira', 'Manoj Kothari'], 1)
-var sport4 = new Question('Which NBA player scored 8 points in the final 7 seconds of a game to lead his team to victory?', ['Baron Davis', 'Kevin Garnett', 'Stephon Maurbury', 'Reggie Miller'], 3)
-var sport5 = new Question('	How long are professional Golf Tour players allotted per shot?', ['45 seconds', '25 seconds', '1 minute', '2 minutes'], 0)
-var sport6 = new Question('Who won the 1993 "King of the Ring"?', ['Owen Hart', 'Bret Hart', 'Edge', 'Mabel'], 1)
-var sport7 = new Question('Which country won the Cricket World Cup in 1999?', ['Australia',, 'South Africa', 'Pakistan', 'England'], 0)
-var sport8 = new Question('Who did The Rock beat to win his first WWE Title?', ['Triple H', 'Stone Cold Steve Austin', 'Mankind', 'Bret Hart'], 2)
+// sportss
+var sports1 = new Question('Which was the 1st non Test playing country to beat India in an international match?', ['Canada', 'Sri Lanka', 'Zimbabwe', 'East Afica'], 1)
+var sports2 = new Question('Track and field star Carl Lewis won how many gold medals at the 1984 Olympic games?', ['One', 'Two', 'Four', 'Eight'], 2)
+var sports3 = new Question('Who was the first Indian to win the World Amateur Billiards title?', ['Geet Sethi', 'Wilson Jones', 'Michael Ferreira', 'Manoj Kothari'], 1)
+var sports4 = new Question('Which NBA player scored 8 points in the final 7 seconds of a game to lead his team to victory?', ['Baron Davis', 'Kevin Garnett', 'Stephon Maurbury', 'Reggie Miller'], 3)
+var sports5 = new Question('How long are professional Golf Tour players allotted per shot?', ['45 seconds', '25 seconds', '1 minute', '2 minutes'], 0)
+var sports6 = new Question('Who won the 1993 "King of the Ring"?', ['Owen Hart', 'Bret Hart', 'Edge', 'Mabel'], 1)
+var sports7 = new Question('Which country won the Cricket World Cup in 1999?', ['Australia',, 'South Africa', 'Pakistan', 'England'], 0)
+var sports8 = new Question('Who did The Rock beat to win his first WWE Title?', ['Triple H', 'Stone Cold Steve Austin', 'Mankind', 'Bret Hart'], 2)
 
-var sports = new Quiz([sport1, sport2, sport3, sport4, sport5, sport6, sport7, sport8], 'sports')
+var sports = new Quiz([sports1, sports2, sports3, sports4, sports5, sports6, sports7, sports8], 'sports')
+
+
+var language1 = new Question('I ..... tennis every Sunday morning.', ['Playing', 'Play', 'Am playing', 'Am play'], 1)
+var language2 = new Question('Don\'t make so much noise. Noriko ..... to study for her ESL test!', ['Try', 'Tries', 'Tried', 'Is trying'], 3)
+var language3 = new Question('Jun-Sik ..... his teeth before breakfast every morning.', ['Will cleaned', 'Is cleaning', 'Cleans', 'Clean'], 2)
+var language4 = new Question('Sorry, she can\'t come to the phone. She ..... a bath!', ['Is having', 'Having', 'Have', 'Has'], 0)
+var language5 = new Question('..... many times every winter in Frankfurt.', ['It snows', 'It snowed', 'It is snowing', 'It is snow'], 0)
+var language6 = new Question('How many students in your class ..... from Korea?', ['Comes', 'Come', 'Came', 'Are coming'], 1)
+var language7 = new Question('Weather report: \"It\'s seven o\'clock in Frankfurt and ..... .\"', ['There is snow',, 'It\'s snowing', 'It snows', 'It snowed'], 1)
+var language8 = new Question('Babies ..... when they are hungry.', ['Cry', 'Cries', 'Cried', 'Are crying'], 0)
+
+var language = new Quiz([language1, language2, language3, language4, language5, language6, language7, language8], 'language')
