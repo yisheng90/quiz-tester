@@ -103,5 +103,5 @@ Quiz.prototype.restart = function () {
   this.completedQuestion = 0,
   this.player1Points = 0,
   this.player2Points = 0,
-  currentPlayer = 1
+  this.currentPlayer = 1
 }

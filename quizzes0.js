@@ -107,10 +107,14 @@ $(document).ready(function () {
     $('.questions-bank button').removeClass('done')
     .text('')
     .prop('disabled', false)
+    .attr('id', subject.type)
+    $('.player1').text(0)
+    $('.player2').text(0)
     questionSequence(subject)
+
     subject.restart()
   })
-  
+
   $('.page-header').click(function () {
     $('.questions-bank button').remove()
     $('.quiz').hide()
@@ -176,5 +180,3 @@ function showQuestionBank (subject) {
     .attr('id', subject.type)
   }
 }
-
-
